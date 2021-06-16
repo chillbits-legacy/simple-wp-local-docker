@@ -1,0 +1,10 @@
+{
+  "name": "photomart.com.au",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "bash": "docker-compose exec --user root phpfpm bash",
+    "up": "docker-compose up -d",
+    "down": "docker-compose down --volumes"
+  }
+}
