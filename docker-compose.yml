@@ -35,3 +35,15 @@ services:
       - "./config/nginx/default.conf:/etc/nginx/conf.d/default.conf:cached"
       - "./config/certs:/etc/nginx/certs:cached"
       - "./logs/nginx:/var/log/nginx:cached"
+      - "./data/certbot/certs/:/var/certs"
+      - "./certbot/letsencrypt/:/var/www/letsencrypt"
+
+   certbot:
+      build:
+        context: ./certbot
+      volumes:
+        - "./data/certbot/certs/:/var/certs"
+        - "./certbot/letsencrypt/:/var/www/letsencrypt"
+      environment:
+        - CN=cody.chillbits.com
+        - EMAIL=son@chillbits.com
